@@ -1,4 +1,4 @@
-package com.example.matheus.jokenpo;
+package com.example.matheus.pedrapapeltesoura;
 
 import org.junit.Test;
 

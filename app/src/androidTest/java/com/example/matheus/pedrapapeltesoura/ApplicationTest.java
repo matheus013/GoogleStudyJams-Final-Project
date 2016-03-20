@@ -1,4 +1,4 @@
-package com.example.matheus.jokenpo;
+package com.example.matheus.pedrapapeltesoura;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
