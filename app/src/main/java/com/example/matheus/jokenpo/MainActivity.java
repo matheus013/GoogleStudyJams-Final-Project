@@ -1,5 +1,7 @@
 package com.example.matheus.jokenpo;
 
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -137,31 +140,27 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private String get(int op) {
+    private int get(int op) {
         switch (op) {
             case 0:
-                return "Pedra";
+                return R.drawable.pedra;
             case 1:
-                return "Papel";
+                return R.drawable.papel;
             case 2:
-                return "Tesoura";
+                return R.drawable.tesoura;
         }
-        return "";
+        return -1;
     }
 
     private boolean win(int player, int comp) {
 
-        TextView turn_player = (TextView) findViewById(R.id.player);
-        TextView turn_comp = (TextView) findViewById(R.id.comp);
-        turn_comp.setText(get(comp));
-        turn_player.setText(get(player));
+        ImageView turn_player = (ImageView) findViewById(R.id.player);
+        ImageView turn_comp = (ImageView) findViewById(R.id.comp);
+        turn_comp.setImageDrawable(getDrawable(get(comp)));
+        turn_player.setImageDrawable(getDrawable(get(player)));
 
-        System.out.println(player + " x " + comp);
 
-        if (player == 0 && comp == 2) return true;
-        if (player == 1 && comp == 0) return true;
-        if (player == 2 && comp == 1) return true;
+        return (player == 0 && comp == 2) || (player == 1 && comp == 0) || (player == 2 && comp == 1);
 
-        return false;
     }
 }
